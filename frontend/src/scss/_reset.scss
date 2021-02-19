@@ -1,3 +1,5 @@
+@import "./variables";
+
 *,
 *::before,
 *::after {
@@ -9,6 +11,18 @@
 
 html {
   font-size: 62.5%;
+
+  @include lg {
+    font-size: 62.5%;
+  }
+
+  @include md {
+    font-size: 55%;
+  }
+
+  @include sm {
+    font-size: 53%;
+  }
 }
 
 body {
