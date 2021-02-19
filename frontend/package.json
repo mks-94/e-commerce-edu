@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "scss": "node-sass --watch src/scss/main.scss -o src/styles",
+    "css": "node-sass src/scss/main.scss -o src/styles",
+    "css:watch": "npm run css && node-sass src/scss/main.scss -wo src/styles",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
