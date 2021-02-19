@@ -1,9 +1,9 @@
 import React from "react";
-import CtaTop from "./components/ctaTop/CtaTop";
+import Landing from "./pages/Landing";
 import "./styles/main.css";
 
 const App = () => {
-  return <CtaTop />;
+  return <Landing />;
 };
 
 export default App;
