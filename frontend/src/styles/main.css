@@ -132,3 +132,32 @@ body {
       align-self: center;
       margin-right: 1.6rem;
       cursor: pointer; }
+
+.search {
+  width: 28rem;
+  height: 3rem;
+  border: 2px solid #000000;
+  border-radius: 10rem;
+  outline: none; }
+  @media (max-width: 992px) {
+    .search {
+      width: 25rem; } }
+  @media (max-width: 768px) {
+    .search {
+      width: 20rem; } }
+  @media (max-width: 596px) {
+    .search {
+      width: 15rem; } }
+  .search::placeholder {
+    padding-left: 4rem;
+    font-size: 1.4rem; }
+  .search:focus {
+    border: 2px solid #1dace3;
+    padding-left: 4rem; }
+    .search:focus::placeholder {
+      color: #ffffff00; }
+  .search__icon {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    transform: translate(1rem, 0.5rem); }
