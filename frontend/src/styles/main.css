@@ -289,3 +289,47 @@ body {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 16fr 1fr; }
+  .course-slider__slideout {
+    animation-name: slideout;
+    animation-duration: 0.2s; }
+  .course-slider__slidein {
+    animation-name: slidein;
+    animation-duration: 0.2s; }
+  .course-slider__slideout-right {
+    animation-name: slideoutRight;
+    animation-duration: 0.2s; }
+  .course-slider__slidein-right {
+    animation-name: slideinRight;
+    animation-duration: 0.2s; }
+
+@keyframes slideout {
+  0% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%); } }
+
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: translateX(100%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes slideinRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes slideoutRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    opacity: 0;
+    transform: translateX(100%); } }
