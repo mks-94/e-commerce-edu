@@ -4,8 +4,32 @@ import { courses } from "../../dummyData/courses";
 
 const CourseSlider = () => {
   const [courseCount, setCourseCount] = useState(0);
+  const [courseSliderAnimate, setCourseSliderAnimate] = useState(
+    "course-slider__courses"
+  );
+
   let showCourses = 3;
   let courseCopy = [...courses];
+
+  const changeCourseCount = (e, forword) => {
+    e.stopPropagation();
+    forword
+      ? setCourseSliderAnimate("course-slider__courses course-slider__slideout")
+      : setCourseSliderAnimate(
+          "course-slider__courses course-slider__slideout-right"
+        );
+    setTimeout(() => {
+      if (forword) {
+        setCourseCount(courseCount + showCourses);
+        setCourseSliderAnimate("course-slider__courses course-slider__slidein");
+      } else {
+        setCourseCount(courseCount - showCourses);
+        setCourseSliderAnimate(
+          "course-slider__courses course-slider__slidein-right"
+        );
+      }
+    }, 150);
+  };
 
   const courseList = courseCopy.map((el) => (
     <div key={el.position} className="course-slider__course">
@@ -43,11 +67,17 @@ const CourseSlider = () => {
       <div className="course-slider__title">Top Courses</div>
       <div className="course-slider__underscore" />
       <div className="course-slider__container">
-        <div className="course-slider__course--back">
+        <div
+          className="course-slider__course--back"
+          onClick={(e) => changeCourseCount(e)}
+        >
           <FaArrowLeft />
         </div>
-        <div className="course-slider__courses">{activeList}</div>
-        <div className="course-slider__course--forword">
+        <div className={courseSliderAnimate}>{activeList}</div>
+        <div
+          className="course-slider__course--forword"
+          onClick={(e) => changeCourseCount(e, true)}
+        >
           <FaArrowRight />
         </div>
       </div>
