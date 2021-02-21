@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { courses } from "../../dummyData/courses";
+import { courses, sale } from "../../dummyData/courses";
+import useWindowSize from "../../customHooks/useWindowSize";
 
 const CourseSlider = () => {
   const [courseCount, setCourseCount] = useState(0);
@@ -8,26 +9,42 @@ const CourseSlider = () => {
     "course-slider__courses"
   );
 
+  const { width } = useWindowSize();
   let showCourses = 3;
+  if (width <= 596) showCourses = 2;
+
   let courseCopy = [...courses];
 
-  const changeCourseCount = (e, forword) => {
+  courseCopy.push({
+    title: "See more courses",
+    price: "varies",
+    author: "our authors",
+    img: require("../../imgs/books.jpg"),
+    position: 9999999999,
+    id: 9999999999,
+  });
+
+  const changeCourseCountBack = (e) => {
     e.stopPropagation();
-    forword
-      ? setCourseSliderAnimate("course-slider__courses course-slider__slideout")
-      : setCourseSliderAnimate(
-          "course-slider__courses course-slider__slideout-right"
-        );
+
+    setCourseSliderAnimate(
+      "course-slider__courses course-slider__slideout-right"
+    );
     setTimeout(() => {
-      if (forword) {
-        setCourseCount(courseCount + showCourses);
-        setCourseSliderAnimate("course-slider__courses course-slider__slidein");
-      } else {
-        setCourseCount(courseCount - showCourses);
-        setCourseSliderAnimate(
-          "course-slider__courses course-slider__slidein-right"
-        );
-      }
+      setCourseCount(courseCount - showCourses);
+      setCourseSliderAnimate(
+        "course-slider__courses course-slider__slidein-right"
+      );
+    }, 150);
+  };
+
+  const changeCourseCountForword = (e) => {
+    e.stopPropagation();
+    setCourseSliderAnimate("course-slider__courses course-slider__slideout");
+
+    setTimeout(() => {
+      setCourseCount(courseCount + showCourses);
+      setCourseSliderAnimate("course-slider__courses course-slider__slidein");
     }, 150);
   };
 
@@ -43,12 +60,28 @@ const CourseSlider = () => {
         <div className="course-slider__course--bottom--author">
           by:{el.author}
         </div>
-        <div className="course-slider__course--bottom--price">{el.price}</div>
-        <input
-          className="course-slider__course--bottom--button"
-          type="submit"
-          value="add to cart"
-        />
+
+        {el.saleOptIn && sale ? (
+          <div className="course-slider__course--bottom--price">
+            <span className="course-slider__course--bottom--strike">
+              ${el.price}
+            </span>
+            Sale ${el.price * sale}
+          </div>
+        ) : (
+          <div className="course-slider__course--bottom--price">
+            ${el.price}
+          </div>
+        )}
+        {el.position === 9999999999 ? (
+          <div />
+        ) : (
+          <input
+            className="course-slider__course--bottom--button"
+            type="submit"
+            value="add to cart"
+          />
+        )}
       </div>
     </div>
   ));
@@ -67,19 +100,27 @@ const CourseSlider = () => {
       <div className="course-slider__title">Top Courses</div>
       <div className="course-slider__underscore" />
       <div className="course-slider__container">
-        <div
-          className="course-slider__course--back"
-          onClick={(e) => changeCourseCount(e)}
-        >
-          <FaArrowLeft />
-        </div>
+        {courseCount === 0 ? (
+          <div />
+        ) : (
+          <div
+            className="course-slider__course--back"
+            onClick={(e) => changeCourseCountBack(e)}
+          >
+            <FaArrowLeft />
+          </div>
+        )}
         <div className={courseSliderAnimate}>{activeList}</div>
-        <div
-          className="course-slider__course--forword"
-          onClick={(e) => changeCourseCount(e, true)}
-        >
-          <FaArrowRight />
-        </div>
+        {courseCount + showCourses >= courseCopy.length ? (
+          <div />
+        ) : (
+          <div
+            className="course-slider__course--forword"
+            onClick={(e) => changeCourseCountForword(e)}
+          >
+            <FaArrowRight />
+          </div>
+        )}
       </div>
     </div>
   );
