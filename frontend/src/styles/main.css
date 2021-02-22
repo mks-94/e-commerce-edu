@@ -22,6 +22,11 @@ body {
   box-sizing: border-box;
   font-family: "Open sans", sans-serif; }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 15rem); }
+
 .cta-top {
   position: relative;
   display: flex;
@@ -224,7 +229,7 @@ body {
       .course-slider__course--back:hover::before {
         background-color: #e9327c; }
     .course-slider__course--img {
-      height: 17rem; }
+      height: 22rem; }
     .course-slider__course--bottom {
       display: flex;
       flex-direction: column;
@@ -344,3 +349,42 @@ body {
   100% {
     opacity: 0;
     transform: translateX(100%); } }
+
+.footer {
+  position: relative;
+  width: 100vw;
+  height: 10rem;
+  overflow: hidden;
+  background-color: #ffffff;
+  z-index: 999; }
+  .footer__page-break {
+    border-bottom: 2px solid rgba(105, 105, 105, 0.3); }
+  .footer__top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); }
+    .footer__top--link {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: #1dace3;
+      margin: 2rem, 2rem, 0, 2rem;
+      text-align: center;
+      transition: all 0.4s; }
+      .footer__top--link:hover {
+        color: #001a49;
+        cursor: pointer; }
+  .footer__lowest {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: hidden;
+    height: 10rem; }
+    .footer__lowest--logo {
+      width: 18%;
+      margin-bottom: 3rem; }
+    .footer__lowest--copyright {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-right: 4rem;
+      margin-bottom: 3rem; }
