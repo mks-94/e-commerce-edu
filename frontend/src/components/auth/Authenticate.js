@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../imgs/logo.svg";
 
 const Authenticate = () => {
+  const [submitVal, setSubmitVal] = useState("Login");
+
+  const optionsClick = (e) => {
+    setSubmitVal(e.target.id);
+  };
+
+  //Classes
+  let loginClass =
+    submitVal === "Login"
+      ? "auth__options--login auth__options--clicked"
+      : "auth__options--login";
+
+  let signupClass =
+    submitVal === "Signup"
+      ? "auth__options--login auth__options--clicked"
+      : "auth__options--login";
+
   return (
     <div className="auth__container">
       <div className="auth__options">
-        <div className="auth__options--login auth__options--clicked" id="Login">
+        <div className={loginClass} id="Login" onClick={(e) => optionsClick(e)}>
           Login
         </div>
         <div
-          className="auth__options--login auth__options--clicked"
+          className={signupClass}
           id="Signup"
+          onClick={(e) => optionsClick(e)}
         >
           Signup
         </div>
