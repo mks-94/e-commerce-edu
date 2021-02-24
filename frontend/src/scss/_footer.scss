@@ -3,7 +3,7 @@
 .footer {
   position: relative;
   width: 100vw;
-  height: 10rem;
+  height: 8rem;
   overflow: hidden;
   background-color: $color-white;
   z-index: 999;
@@ -42,14 +42,14 @@
 
     &--logo {
       width: 18%;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
 
     &--copyright {
       font-size: 1.4rem;
       font-weight: 800;
       margin-right: 4rem;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
   }
 }

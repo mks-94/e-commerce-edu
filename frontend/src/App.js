@@ -4,6 +4,7 @@ import Header from "../src/components/header/Header";
 import Footer from "./components/footer/Footer";
 import Auth from "./pages/Auth";
 import Landing from "./pages/Landing";
+import Product from "./pages/Product";
 import "./styles/main.css";
 
 const App = () => {
@@ -15,6 +16,9 @@ const App = () => {
           <Switch>
             <Route exact path="/auth">
               <Auth />
+            </Route>
+            <Route exact path="/product">
+              <Product />
             </Route>
             <Route exact path="/">
               <Landing />
