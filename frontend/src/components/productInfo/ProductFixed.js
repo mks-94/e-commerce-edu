@@ -11,10 +11,10 @@ const ProductFixed = () => {
     certification,
   } = courses[0];
   return (
-    <div className="product-cta__buynow--container">
+    <div className="product-cta__buynow">
       <img className="product-cta__buynow--top" src={img} alt="top img" />
       <div className="product-cta__buynow--bottom">
-        <div className="product-cta__buynow--bottom--price">{price}</div>
+        <div className="product-cta__buynow--bottom--price">${price}</div>
         <input
           className="product-cta__buynow--bottom--addtocart"
           type="submit"
