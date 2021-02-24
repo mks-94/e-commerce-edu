@@ -353,7 +353,7 @@ body {
 .footer {
   position: relative;
   width: 100vw;
-  height: 10rem;
+  height: 8rem;
   overflow: hidden;
   background-color: #ffffff;
   z-index: 999; }
@@ -382,12 +382,12 @@ body {
     height: 10rem; }
     .footer__lowest--logo {
       width: 18%;
-      margin-bottom: 3rem; }
+      margin-bottom: 4rem; }
     .footer__lowest--copyright {
       font-size: 1.4rem;
       font-weight: 800;
       margin-right: 4rem;
-      margin-bottom: 3rem; }
+      margin-bottom: 4rem; }
 
 .auth {
   display: flex;
@@ -483,3 +483,25 @@ body {
     @media (max-width: 768px) {
       .auth-comp__right {
         background-image: radial-gradient(circle, #f7f7f7 30%, rgba(247, 247, 247, 0.5) 70%); } }
+
+.product-cta {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  background-color: #29303b;
+  height: 36rem; }
+  .product-cta__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 56%;
+    margin: 3rem;
+    color: #f7f7f7; }
+    .product-cta__info--title {
+      font-size: 3.5rem;
+      font-weight: 800; }
+    .product-cta__info--tagline {
+      font-size: 1.8rem; }
+    .product-cta__info--author {
+      font-size: 1.6rem;
+      font-weight: 800; }
