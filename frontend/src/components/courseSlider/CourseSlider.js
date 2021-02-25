@@ -50,7 +50,6 @@ const CourseSlider = () => {
 
   const courseList = courseCopy.map((el) => (
     <div key={el.position} className="course-slider__course">
-      {console.log(el.img, "Is Image coming!")}
       <img className="course-slider__course--img" src={el.img} alt={el.name} />
       <div className="course-slider__course--bottom">
         <div className="course-slider__course--bottom--title">{el.title}</div>
