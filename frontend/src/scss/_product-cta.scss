@@ -18,6 +18,24 @@
     z-index: 100;
     transition: all 0.5s;
 
+    @include lg {
+      position: relative;
+      display: flex;
+      bottom: 0;
+      flex-direction: column;
+      width: 100vw;
+      margin: 0;
+      box-shadow: none;
+    }
+
+    &--offset {
+      transform: translateY(-9rem);
+
+      @include lg {
+        transform: translateY(0);
+      }
+    }
+
     &--top {
       height: 18rem;
       width: 100%;
@@ -35,6 +53,13 @@
         justify-content: center;
         font-size: 3.5rem;
         font-weight: 600;
+
+        &--slash {
+          font-size: 1.6rem;
+          margin-left: 2rem;
+          text-decoration: line-through;
+          color: $color-grey-dark;
+        }
       }
 
       &--points {
@@ -45,6 +70,14 @@
 
         &--medium {
           margin-top: 2rem;
+
+          @include lg {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            margin-top: 2.6rem;
+            column-gap: 2rem;
+            row-gap: 1rem;
+          }
         }
       }
 
@@ -78,6 +111,10 @@
     width: 56%;
     margin: 3rem;
     color: $color-grey-light;
+
+    @include lg {
+      width: 100vw;
+    }
 
     &--title {
       font-size: 3.5rem;
