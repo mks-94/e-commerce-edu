@@ -143,6 +143,7 @@ body {
   height: 3rem;
   border: 2px solid #000000;
   border-radius: 10rem;
+  padding-left: 4rem;
   outline: none; }
   @media (max-width: 992px) {
     .search {
@@ -154,11 +155,9 @@ body {
     .search {
       width: 15rem; } }
   .search::placeholder {
-    padding-left: 4rem;
     font-size: 1.4rem; }
   .search:focus {
-    border: 2px solid #1dace3;
-    padding-left: 4rem; }
+    border: 2px solid #1dace3; }
     .search:focus::placeholder {
       color: #ffffff00; }
   .search__icon {
@@ -431,13 +430,11 @@ body {
       border: 1px solid rgba(41, 48, 59, 0.4);
       border-radius: 10rem;
       outline: none;
+      padding-left: 1.4rem;
       background-color: rgba(247, 247, 247, 0.9);
       z-index: 100; }
-      .auth__form--input::placeholder {
-        padding-left: 1.4rem; }
       .auth__form--input:focus {
-        border: 2px solid #1dace3;
-        padding-left: 1.4rem; }
+        border: 2px solid #1dace3; }
         .auth__form--input:focus::placeholder {
           color: transparent; }
     .auth__form--submit {
