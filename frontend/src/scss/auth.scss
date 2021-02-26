@@ -56,16 +56,12 @@
       border: 1px solid rgba($color-slate-dark, 0.4);
       border-radius: 10rem;
       outline: none;
+      padding-left: 1.4rem;
       background-color: rgba($color-grey-light, 0.9);
       z-index: 100;
 
-      &::placeholder {
-        padding-left: 1.4rem;
-      }
-
       &:focus {
         border: 2px solid $color-blue-light;
-        padding-left: 1.4rem;
 
         &::placeholder {
           color: transparent;

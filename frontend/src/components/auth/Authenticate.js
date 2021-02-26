@@ -1,8 +1,37 @@
 import React, { useState } from "react";
 import logo from "../../imgs/logo.svg";
+import API from "../../util/API";
 
 const Authenticate = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [submitVal, setSubmitVal] = useState("Login");
+
+  console.log(email, password);
+
+  const submit = async (e) => {
+    e.preventDefault();
+
+    const body = { email, password };
+
+    const options = { headers: { "Content-Type": "appliction/json" } };
+
+    const url = "/auth/signup";
+    try {
+      const res = await API.post(url, body, options);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const updateEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const updatePassword = (e) => {
+    setPassword(e.target.value);
+  };
 
   const optionsClick = (e) => {
     setSubmitVal(e.target.id);
@@ -35,16 +64,18 @@ const Authenticate = () => {
       </div>
       <div className="auth">
         <img className="auth__header" src={logo} alt="logo" />
-        <form className="auth__form">
+        <form className="auth__form" onSubmit={(e) => submit(e)}>
           <input
             className="auth__form--input"
             type="email"
             placeholder="email"
+            onChange={(e) => updateEmail(e)}
           />
           <input
             className="auth__form--input"
             type="password"
             placeholder="password"
+            onChange={(e) => updatePassword(e)}
           />
           <input className="auth__form--submit" type="submit" value="Submit" />
         </form>
