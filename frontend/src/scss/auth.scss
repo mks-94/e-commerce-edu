@@ -81,6 +81,7 @@
       z-index: 100;
       -webkit-appearance: none;
       transition: all 0.4s;
+      outline: none;
 
       &:hover {
         color: $color-blue-light;
