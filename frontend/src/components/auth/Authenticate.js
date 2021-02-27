@@ -7,8 +7,6 @@ const Authenticate = () => {
   const [password, setPassword] = useState("");
   const [submitVal, setSubmitVal] = useState("Login");
 
-  console.log(email, password);
-
   const submit = async (e) => {
     e.preventDefault();
 
@@ -16,7 +14,8 @@ const Authenticate = () => {
 
     const options = { headers: { "Content-Type": "application/json" } };
 
-    const url = "/auth/signup";
+    const url = submitVal === "Login" ? "/auth/login" : "/auth/signup";
+
     try {
       const res = await API.post(url, body, options);
       console.log(res);
