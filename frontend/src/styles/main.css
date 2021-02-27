@@ -448,7 +448,8 @@ body {
       cursor: pointer;
       z-index: 100;
       -webkit-appearance: none;
-      transition: all 0.4s; }
+      transition: all 0.4s;
+      outline: none; }
       .auth__form--submit:hover {
         color: #1dace3;
         background-color: #f7f7f7; }

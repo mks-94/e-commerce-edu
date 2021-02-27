@@ -14,7 +14,7 @@ const Authenticate = () => {
 
     const body = { email, password };
 
-    const options = { headers: { "Content-Type": "appliction/json" } };
+    const options = { headers: { "Content-Type": "application/json" } };
 
     const url = "/auth/signup";
     try {
