@@ -1,27 +1,19 @@
 import React, { useState } from "react";
 import logo from "../../imgs/logo.svg";
-import API from "../../util/API";
+import { loginAction, signupAction } from "../../redux/actions/userActions";
+import { useDispatch } from "react-redux";
 
 const Authenticate = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitVal, setSubmitVal] = useState("Login");
+  const dispatch = useDispatch();
 
   const submit = async (e) => {
     e.preventDefault();
-
-    const body = { email, password };
-
-    const options = { headers: { "Content-Type": "application/json" } };
-
-    const url = submitVal === "Login" ? "/auth/login" : "/auth/signup";
-
-    try {
-      const res = await API.post(url, body, options);
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
+    submitVal === "Login"
+      ? dispatch(loginAction(email, password))
+      : dispatch(signupAction(email, password));
   };
 
   const updateEmail = (e) => {
