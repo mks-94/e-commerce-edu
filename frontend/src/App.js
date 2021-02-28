@@ -8,6 +8,7 @@ import Product from "./pages/Product";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import "./styles/main.css";
+import Alert from "./components/alert/Alert";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Router>
         <Header />
         <div className="page-container">
+          <Alert />
           <Switch>
             <Route exact path="/auth">
               <Auth />
