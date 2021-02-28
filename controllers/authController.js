@@ -45,7 +45,7 @@ exports.signup = async (req, res) => {
       email,
       password: pw,
     });
-
+    newUser.password = null;
     sendToken(newUser, 201, req, res);
   } catch (err) {
     console.log(err);

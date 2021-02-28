@@ -1,15 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "../src/components/header/Header";
 import Footer from "./components/footer/Footer";
 import Auth from "./pages/Auth";
 import Landing from "./pages/Landing";
 import Product from "./pages/Product";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import "./styles/main.css";
 
 const App = () => {
   return (
-    <Fragment>
+    <Provider store={store}>
       <Router>
         <Header />
         <div className="page-container">
@@ -27,7 +29,7 @@ const App = () => {
         </div>
         <Footer />
       </Router>
-    </Fragment>
+    </Provider>
   );
 };
 
