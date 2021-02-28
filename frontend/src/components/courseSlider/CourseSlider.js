@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { courses, sale } from "../../dummyData/courses";
 import useWindowSize from "../../customHooks/useWindowSize";
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../redux/actions/alertActions";
 
 const CourseSlider = () => {
   const [courseCount, setCourseCount] = useState(0);
@@ -14,6 +16,12 @@ const CourseSlider = () => {
   if (width <= 596) showCourses = 2;
 
   let courseCopy = [...courses];
+
+  const dispatch = useDispatch();
+
+  const makeAlert = (el) => {
+    dispatch(setAlert(el.title));
+  };
 
   courseCopy.push({
     title: "See more courses",
@@ -76,6 +84,7 @@ const CourseSlider = () => {
             className="course-slider__course--bottom--button"
             type="submit"
             value="add to cart"
+            onClick={() => makeAlert(el)}
           />
         )}
       </div>
