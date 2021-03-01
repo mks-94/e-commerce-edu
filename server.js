@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
+const { sendError } = require("./utils/ErrorHandler");
 
 require("dotenv").config();
 
@@ -23,6 +24,11 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 //Routes
 app.use("/api/v1/auth", authRoutes);
+
+//Error Handler
+app.use((err, req, res, next) => {
+  sendError(err, res);
+});
 
 //DB connection
 const db = process.env.DATABASE;
