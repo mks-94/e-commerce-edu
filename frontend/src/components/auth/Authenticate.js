@@ -13,7 +13,7 @@ const Authenticate = () => {
   const submit = async (e) => {
     e.preventDefault();
 
-    if (password.length < 8) {
+    if (password.length < 5) {
       return dispatch(setAlert("Password must be 8 characters or more."));
     }
     submitVal === "Login"

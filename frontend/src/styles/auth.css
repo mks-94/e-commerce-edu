@@ -28,7 +28,8 @@
     height: 100%;
     margin-top: 0.7rem; }
   .auth__header {
-    width: 20rem;
+    width: 13rem;
+    margin-left: 3rem;
     transform: translateY(-0.7rem) scale(1.8); }
   .auth__form {
     display: flex;
@@ -58,7 +59,8 @@
       cursor: pointer;
       z-index: 100;
       -webkit-appearance: none;
-      transition: all 0.4s; }
+      transition: all 0.4s;
+      outline: none; }
       .auth__form--submit:hover {
         color: #1dace3;
         background-color: #f7f7f7; }

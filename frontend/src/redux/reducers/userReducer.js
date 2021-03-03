@@ -1,7 +1,7 @@
-import { GET_USER } from "../types";
+import { GET_USER, LOGOUT } from "../types";
 
 const INITIAL_STATE = {
-  user: [],
+  user: { clearance: "", email: "", _id: "" },
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -12,6 +12,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         user: payload,
       };
+    case LOGOUT:
+      return INITIAL_STATE;
     default:
       return state;
   }

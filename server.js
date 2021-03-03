@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const { sendError } = require("./utils/ErrorHandler");
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
@@ -21,6 +22,7 @@ app.use(
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(cookieParser());
 
 //Routes
 app.use("/api/v1/auth", authRoutes);

@@ -45,7 +45,7 @@ exports.signup = async (req, res, next) => {
       return next(new ErrorHandler(400, "Please enter an email and password."));
     }
 
-    if (password.length < 8) {
+    if (password.length < 5) {
       return next(
         new ErrorHandler(401, "Password must be at least 8 characters")
       );
@@ -79,6 +79,21 @@ exports.login = async (req, res, next) => {
     }
 
     sendToken(user, 200, req, res);
+  } catch (err) {
+    return next(err);
+  }
+};
+
+//Logout controller
+exports.logout = async (req, res, next) => {
+  try {
+    const options = {
+      expires: new Date(Date.now + 10000),
+      secure: NODE_ENV === "production",
+      httpOnly: NODE_ENV === "production",
+    };
+    res.cookie("jwt", "expiredtoken", options);
+    res.status(200).json({ status: "success" });
   } catch (err) {
     return next(err);
   }

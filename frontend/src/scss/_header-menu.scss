@@ -6,6 +6,7 @@
   text-align: center;
   align-self: center;
   width: 12rem;
+  margin-top: 0.4rem;
 
   &:hover > &__expand {
     visibility: visible;
@@ -17,17 +18,31 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    visibility: hidden;
+    visibility: visible;
+    overflow: hidden;
     height: 0;
     width: 12rem;
-    z-index: 0;
+    z-index: 20000;
     opacity: 0;
     border: 2px solid $color-blue-light;
+    background-color: $color-white;
     border-radius: 3rem;
+    padding-top: 1rem;
     transition: opacity 0.3s;
 
     &--links {
+      display: flex;
+      flex-direction: column;
       &--text {
+        text-decoration: none;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: $color-blue-light;
+
+        &:hover {
+          color: $color-blue-dark;
+        }
       }
     }
   }

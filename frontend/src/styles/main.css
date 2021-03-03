@@ -3,8 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-  overflow-x: hidden; }
+  box-sizing: inherit; }
 
 html {
   font-size: 62.5%; }
@@ -95,8 +94,7 @@ body {
   width: 100vw;
   height: 7rem;
   background-color: #ffffff;
-  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.15);
-  overflow: hidden; }
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.15); }
   .header__left {
     display: flex;
     align-items: flex-start;
@@ -425,7 +423,8 @@ body {
     height: 100%;
     margin-top: 0.7rem; }
   .auth__header {
-    width: 20rem;
+    width: 13rem;
+    margin-left: 3rem;
     transform: translateY(-0.7rem) scale(1.8); }
   .auth__form {
     display: flex;
@@ -639,7 +638,8 @@ body {
   cursor: pointer;
   text-align: center;
   align-self: center;
-  width: 12rem; }
+  width: 12rem;
+  margin-top: 0.4rem; }
   .header-menu:hover > .header-menu__expand {
     visibility: visible;
     height: auto;
@@ -648,11 +648,25 @@ body {
     position: absolute;
     display: flex;
     flex-direction: column;
-    visibility: hidden;
+    visibility: visible;
+    overflow: hidden;
     height: 0;
     width: 12rem;
-    z-index: 0;
+    z-index: 20000;
     opacity: 0;
     border: 2px solid #1dace3;
+    background-color: #ffffff;
     border-radius: 3rem;
+    padding-top: 1rem;
     transition: opacity 0.3s; }
+    .header-menu__expand--links {
+      display: flex;
+      flex-direction: column; }
+      .header-menu__expand--links--text {
+        text-decoration: none;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: #1dace3; }
+        .header-menu__expand--links--text:hover {
+          color: #001a49; }

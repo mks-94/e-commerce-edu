@@ -1,4 +1,4 @@
-import { GET_USER } from "../types";
+import { GET_USER, LOGOUT } from "../types";
 import API from "../../util/API";
 import { setAlert } from "./alertActions";
 
@@ -25,6 +25,16 @@ export const loginAction = (email, password) => async (dispatch) => {
     const res = await API.post(url, body, options);
     dispatch({ type: GET_USER, payload: res.data.user });
     console.log(res);
+  } catch (err) {
+    dispatch(setAlert(err.response.data.message));
+  }
+};
+
+export const logoutAction = () => async (dispatch) => {
+  const url = "/auth/logout";
+  try {
+    await API.get(url);
+    dispatch({ type: LOGOUT });
   } catch (err) {
     dispatch(setAlert(err.response.data.message));
   }
