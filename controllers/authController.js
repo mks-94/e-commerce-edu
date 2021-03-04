@@ -15,7 +15,6 @@ const encryptPw = async (password) => {
 
 //jwt helper function
 const makeJwt = (id) => {
-  console.log(JWT_SECRET);
   return jwt.sign({ id }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
 };
 
@@ -94,6 +93,41 @@ exports.logout = async (req, res, next) => {
     };
     res.cookie("jwt", "expiredtoken", options);
     res.status(200).json({ status: "success" });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+//Check User controller
+const decryptJWT = async (token) => {
+  return await jwt.verify(token, JWT_SECRET);
+};
+
+exports.checkUserCred = async (req, res, next) => {
+  try {
+    let token;
+    if (req.cookies) token = req.cookies.jwt;
+    if (!token || token === "expiredtoken") {
+      return next(
+        new ErrorHandler(401, "User does not have valid credentials")
+      );
+    }
+
+    const jwtInfo = await decryptJWT(token);
+    console.log(jwtInfo);
+
+    if (jwtInfo.exp < Date.now() / 1000) {
+      return next(
+        new ErrorHandler(401, "User does not have valid credentials")
+      );
+    }
+
+    const user = await User.findById(jwtInfo.id);
+    if (!user) {
+      return next(new ErrorHandler(404, "User not found"));
+    }
+
+    res.status(200).json({ status: "success", user });
   } catch (err) {
     return next(err);
   }
