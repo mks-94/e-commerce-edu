@@ -17,3 +17,9 @@ export const addToCart = (cart, item) => (dispatch) => {
   dispatch({ type: UPDATE_CART, payload: { cart: newCart, total: newTotal } });
   dispatch(setAlert("Added to cart", 3000));
 };
+
+export const removeFromCart = (cart, item) => (dispatch) => {
+  const newCart = cart.filter((el) => el.id !== item.id);
+  const newTotal = cartTotal(newCart);
+  dispatch({ type: UPDATE_CART, payload: { cart: newCart, total: newTotal } });
+};
