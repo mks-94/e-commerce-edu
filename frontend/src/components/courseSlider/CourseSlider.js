@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { courses, sale } from "../../dummyData/courses";
 import useWindowSize from "../../customHooks/useWindowSize";
-import { useDispatch } from "react-redux";
-import { setAlert } from "../../redux/actions/alertActions";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/actions/cartActions";
 
 const CourseSlider = () => {
   const [courseCount, setCourseCount] = useState(0);
   const [courseSliderAnimate, setCourseSliderAnimate] = useState(
     "course-slider__courses"
   );
+  const { cart } = useSelector((state) => state.cartReducer);
+
+  const cartAdd = (item) => {
+    dispatch(addToCart(cart, item));
+  };
 
   const { width } = useWindowSize();
   let showCourses = 3;
@@ -18,10 +23,6 @@ const CourseSlider = () => {
   let courseCopy = [...courses];
 
   const dispatch = useDispatch();
-
-  const makeAlert = (el) => {
-    dispatch(setAlert(el.title));
-  };
 
   courseCopy.push({
     title: "See more courses",
@@ -84,7 +85,7 @@ const CourseSlider = () => {
             className="course-slider__course--bottom--button"
             type="submit"
             value="add to cart"
-            onClick={() => makeAlert(el)}
+            onClick={() => cartAdd(el)}
           />
         )}
       </div>
