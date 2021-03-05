@@ -5,6 +5,7 @@ import Footer from "./components/footer/Footer";
 import Auth from "./pages/Auth";
 import Landing from "./pages/Landing";
 import Product from "./pages/Product";
+import ShoppingCart from "./pages/ShoppingCart";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import "./styles/main.css";
@@ -23,6 +24,9 @@ const App = () => {
             </Route>
             <Route exact path="/product">
               <Product />
+            </Route>
+            <Route exact path="/cart">
+              <ShoppingCart />
             </Route>
             <Route exact path="/">
               <Landing />
