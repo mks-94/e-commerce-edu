@@ -739,3 +739,97 @@ body {
     @media (max-width: 768px) {
       .cart-items__container {
         width: 100%; } }
+
+.stripe-pay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #29303b;
+  width: 90vw;
+  margin: 2rem auto 3rem auto;
+  padding: 3rem; }
+  .stripe-pay__title {
+    display: flex;
+    align-self: center;
+    font-size: 3rem;
+    color: #f7f7f7; }
+  .stripe-pay__row {
+    display: flex;
+    text-align: center;
+    padding: 1rem; }
+  .stripe-pay__row-radio {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 2rem;
+    margin-right: 2.8rem; }
+  .stripe-pay__button {
+    padding: 0.8rem;
+    border: none;
+    background-color: #1dace3;
+    color: #f7f7f7;
+    box-shadow: 0 0.4 0.8rem rgba(0, 0, 0, 0.2);
+    width: 100%;
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    cursor: pointer; }
+  .stripe-pay__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr)); }
+  .stripe-pay__row-input {
+    font-size: 16px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #ffffff;
+    width: 100%;
+    outline: none;
+    border-bottom: 2px solid #ffffff00;
+    border-top: 3px solid #ffffff00;
+    border-left: 0;
+    border-right: 0; }
+    .stripe-pay__row-input::placeholder {
+      color: #aab7c4;
+      font-family: sans-serif; }
+    .stripe-pay__row-input:focus:invalid {
+      border-bottom: 3px solid #e9327c;
+      font-family: sans-serif; }
+    .stripe-pay__row-input:focus:valid {
+      border-bottom: 3px solid #1dace3;
+      font-family: sans-serif; }
+
+.StripeElement {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: #ffffff;
+  width: 100%;
+  outline: none;
+  border-bottom: 2px solid #ffffff00;
+  border-top: 3px solid #ffffff00; }
+  .StripeElement--focus {
+    border-bottom: 3px solid #1dace3; }
+  .StripeElement--invalid {
+    border-bottom: 3px solid #e9327c; }
+
+.radio {
+  color: #f7f7f7;
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 0 2rem; }
+  .radio::after {
+    content: "";
+    position: absolute;
+    margin-left: 1rem;
+    margin-top: 0.3rem;
+    border: 2px solid #1dace3;
+    border-radius: 50%;
+    transform: translateY(1px);
+    height: 2rem;
+    width: 2rem; }
+  .radio--fill {
+    color: #f7f7f7;
+    font-size: 2rem; }
+    .radio--fill::after {
+      content: "";
+      background-color: #1dace3;
+      transition: all 0.3s; }
