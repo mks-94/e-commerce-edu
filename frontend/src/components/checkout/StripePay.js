@@ -19,8 +19,25 @@ const StripePay = () => {
     setNameOnCard(e.target.value);
   };
 
+  const submitToken = async () => {
+    if (!stripe || !elements) return;
+    const cardElement = elements.getElement(CardElement);
+    try {
+      const { token } = await stripe.createToken(cardElement);
+      return token;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let token = await submitToken();
+    console.log(token);
+  };
+
   return (
-    <form className="stripe-pay">
+    <form className="stripe-pay" onSubmit={handleSubmit}>
       <div className="stripe-pay__title">Checkout</div>
       <div className="stripe-pay__grid">
         <div className="stripe-pay__row">
@@ -63,5 +80,4 @@ const StripePay = () => {
     </form>
   );
 };
-
 export default StripePay;
